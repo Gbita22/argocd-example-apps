@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitlab.com/bitara/keycloak.git
+    targetRevision: HEAD
+    path: keycloak
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: bitara
